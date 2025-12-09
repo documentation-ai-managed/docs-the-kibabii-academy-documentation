@@ -1,0 +1,139 @@
+---
+title: Changelog
+description: Track updates, new features, and improvements to the Kibabii Academy Documentation platform over time.
+---
+
+## Overview
+
+Stay informed about every release of the Kibabii Academy Documentation platform. You access detailed changelogs here, organized by version. Each entry highlights new features, improvements, bug fixes, and breaking changes.
+
+Use the `<Update>` components below to review recent updates. Subscribe to notifications or follow the repository to get alerts for new versions.
+
+<Callout kind="info">
+  Breaking changes appear with the `breaking` tag. Review them carefully before upgrading.
+</Callout>
+
+## Recent Releases
+
+<Update label="2024-11-15" description="v2.0.0" tags={["feature", "breaking"]}>
+## New Features
+
+- Added real-time collaboration for document editing
+- Introduced AI-powered search with semantic matching
+- New `<Video>` and `<Iframe>` components for rich media embeds
+
+## Breaking Changes
+
+- Removed legacy `<Mermaid>` component syntax; use code blocks only
+- Updated attribute syntax to require double quotes everywhere
+
+## Bug Fixes
+
+- Fixed parsing errors with nested code blocks
+- Resolved heading hierarchy validation issues
+</Update>
+
+<Update label="2024-10-20" description="v1.5.0" tags={["feature", "improvement"]}>
+## New Features
+
+- Added `<Columns>` component for responsive grid layouts
+- Support for custom brand colors like `#3B82F6`
+
+## Improvements
+
+- Enhanced performance of `<Tabs>` and `<Steps>` rendering
+- Better accessibility with required `alt` and `title` attributes
+
+## Bug Fixes
+
+- Corrected escaping for `{` and `}` in prose text
+- Fixed self-closing tags for container components
+</Update>
+
+<Update label="2024-09-15" description="v1.4.0" tags={["bugfix", "security"]}>
+## Improvements
+
+- Optimized MDX parsing for faster page loads
+
+## Bug Fixes
+
+- Patched security vulnerability in unescaped JSX attributes
+- Fixed line numbering in `<CodeGroup>` examples
+
+## Security
+
+- Updated Acorn parser to latest version
+</Update>
+
+## Staying Updated
+
+Follow these steps to ensure you never miss an update.
+
+<Steps>
+  <Step title="Subscribe to Releases" icon="bell">
+    Visit the [GitHub repository](https://github.com/kibabii-academy/docs) and click "Watch" > "Releases only".
+  </Step>
+  <Step title="Join Community" icon="users">
+    Join the Discord server for announcements and discussions.
+  </Step>
+  <Step title="Check API" icon="api">
+    Query the changelog endpoint for programmatic access:
+
+    <CodeGroup tabs="JavaScript,Python">
+```javascript
+const response = await fetch('https://api.kibabii.academy/docs/changelog');
+const updates = await response.json();
+console.log(updates);
+```
+```python
+import requests
+response = requests.get('https://api.kibabii.academy/docs/changelog')
+updates = response.json()
+print(updates)
+```
+    </CodeGroup>
+  </Step>
+</Steps>
+
+## Quick Links
+
+<Columns cols={3}>
+  <Card title="GitHub Repo" icon="github" href="https://github.com/kibabii-academy/docs" target="_blank">
+    View source code and issues.
+  </Card>
+  <Card title="Release Notes" icon="book-open" href="/docs/releases">
+    Full release documentation.
+  </Card>
+  <Card title="Contribute" icon="git-pull-request" href="/docs/contributing">
+    Help improve the platform.
+  </Card>
+</Columns>
+
+## Upcoming Changes
+
+<ExpandableGroup>
+  <Expandable title="v2.1.0 Preview" default-open="false">
+    Plan includes:
+    - Native Mermaid diagram support without code blocks
+    - Advanced theming with CSS variables
+    - Integration with Kibabii Academy LMS
+  </Expandable>
+  <Expandable title="Migration Guide">
+    When upgrading from v1.x:
+
+    | Old Syntax | New Syntax |
+    |------------|------------|
+    | `<Card title='Old'>` | `<Card title="New">` |
+    | Raw `{var}` | `` `{var}` `` |
+    | H1 headings | Start with H2 only |
+  </Expandable>
+</ExpandableGroup>
+
+<Tabs>
+  <Tab title="Features" icon="star">
+    Focus on new capabilities like `<Request>` and `<Response>` components for API docs.
+  </Tab>
+  <Tab title="Bug Fixes" icon="bug">
+    Recent fixes ensure zero parsing errors in MDX.
+  </Tab>
+</Tabs>

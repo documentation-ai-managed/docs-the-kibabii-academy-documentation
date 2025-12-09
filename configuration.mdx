@@ -1,0 +1,156 @@
+---
+title: Customization and Configuration
+description: Learn how to tailor the documentation space to your needs, including branding, permissions, and advanced settings.
+---
+
+## Overview
+
+Customize The Kibabii Academy Documentation to match your branding and workflow. Adjust colors, manage user access, set up integrations, and configure exports. Start with simple settings in the dashboard, then dive into advanced options via configuration files.
+
+<Columns cols={3}>
+  <Card title="Branding" icon="palette" href="#branding">
+    Set your brand color like `#3B82F6` and logos.
+  </Card>
+  <Card title="Permissions" icon="shield" href="#permissions">
+    Control who views and edits docs.
+  </Card>
+  <Card title="Integrations" icon="plug" href="#integrations">
+    Connect to GitHub, Slack, and more.
+  </Card>
+</Columns>
+
+<Callout kind="tip">
+  Save changes and preview them live in the dashboard before publishing.
+</Callout>
+
+## Branding
+
+Tailor the visual identity with custom colors and assets.
+
+<Steps>
+  <Step title="Access Settings" icon="settings">
+    Navigate to **Dashboard > Settings > Branding**.
+  </Step>
+  <Step title="Update Colors" icon="palette">
+    Enter your primary color, such as `#3B82F6` for Kibabii blue.
+  </Step>
+  <Step title="Upload Assets" icon="upload">
+    Add logo and favicon files (PNG, SVG up to 1MB).
+  </Step>
+  <Step title="Apply Changes" icon="check-circle">
+    Click **Save** and clear cache if needed.
+  </Step>
+</Steps>
+
+Edit the theme configuration directly for advanced control.
+
+<CodeGroup tabs="JSON,YAML">
+  ```json
+  {
+    "theme": {
+      "primaryColor": "#3B82F6",
+      "logoUrl": "https://yourdomain.com/logo.svg",
+      "favicon": "https://yourdomain.com/favicon.ico"
+    }
+  }
+  ```
+  ```yaml
+  theme:
+    primaryColor: "#3B82F6"
+    logoUrl: "https://yourdomain.com/logo.svg"
+    favicon: "https://yourdomain.com/favicon.ico"
+  ```
+</CodeGroup>
+
+## User Permissions
+
+Define roles to secure your documentation space.
+
+| Role       | View | Edit | Admin | Invite Users |
+|------------|------|------|-------|--------------|
+| Viewer     | ✅   | ❌   | ❌    | ❌           |
+| Editor     | ✅   | ✅   | ❌    | ❌           |
+| Admin      | ✅   | ✅   | ✅    | ✅           |
+
+<Tabs>
+  <Tab title="Add User" icon="user-plus">
+    1. Go to **Team > Members**.
+    2. Enter email and select role.
+    3. Send invite link.
+  </Tab>
+  <Tab title="Role Permissions" icon="shield">
+    Customize per space:
+
+    ```javascript
+    const permissions = {
+      viewer: ['read'],
+      editor: ['read', 'write'],
+      admin: ['read', 'write', 'manage']
+    };
+    ```
+  </Tab>
+</Tabs>
+
+<Callout kind="alert">
+  Admins inherit all permissions. Revoke access immediately for security.
+</Callout>
+
+## Integration Settings
+
+Connect external services for seamless workflows.
+
+<ExpandableGroup>
+  <Expandable title="GitHub Sync" default-open="true">
+    Sync docs with your repo.
+
+    ```bash
+    GIT_TOKEN=ghp_YourTokenHere
+    REPO=kibabii-academy/docs
+    npm run sync
+    ```
+  </Expandable>
+  <Expandable title="Slack Notifications">
+    Get alerts on updates.
+
+    <CodeGroup tabs="Env,JSON">
+      ```bash
+      SLACK_WEBHOOK=https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX
+      ```
+      ```json
+      {
+        "integrations": {
+          "slack": {
+            "webhook": "https://hooks.slack.com/services/..."
+          }
+        }
+      }
+      ```
+    </CodeGroup>
+  </Expandable>
+</ExpandableGroup>
+
+## Export Options
+
+Export your docs in multiple formats.
+
+<Steps>
+  <Step title="Static Site" icon="download">
+    Generate HTML export from **Export > Static**.
+  </Step>
+  <Step title="PDF Bundle" icon="file-text">
+    Select pages and download PDF.
+  </Step>
+  <Step title="API Export" icon="code">
+    Use the export endpoint:
+
+    ```bash
+    curl -H "Authorization: Bearer YOUR_TOKEN" \
+         https://api.kibabii.academy/export/markdown \
+         -o docs.zip
+    ```
+  </Step>
+</Steps>
+
+<Callout kind="success">
+  Exports update automatically on publish. Schedule via cron for automation.
+</Callout>

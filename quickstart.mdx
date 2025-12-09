@@ -1,0 +1,115 @@
+---
+title: Quickstart Guide
+description: Get up and running with Kibabii Academy Documentation in minutes, covering initial setup and creating your first documentation space.
+---
+
+## Overview
+
+Kibabii Academy Documentation helps you organize project docs efficiently. Follow these steps to create an account, set up your workspace, build your first project, and navigate the interface. You complete setup in under 5 minutes.
+
+## Create Your Account
+
+Sign up quickly using email or social providers.
+
+<Tabs>
+  <Tab title="Email" icon="mail">
+    <Steps>
+      <Step title="Visit Sign-Up Page" icon="globe">
+        Go to `https://app.kibabii.academy/signup`.
+      </Step>
+      <Step title="Enter Details" icon="user">
+        Provide your email, name, and a strong password.
+      </Step>
+      <Step title="Verify Email" icon="check-circle">
+        Check your inbox and click the verification link.
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="Google" icon="apple">
+    <Steps>
+      <Step title="Select Google" icon="globe">
+        Choose the Google option on the sign-up page.
+      </Step>
+      <Step title="Authorize" icon="shield">
+        Grant permissions to Kibabii Academy.
+      </Step>
+    </Steps>
+  </Tab>
+</Tabs>
+
+<Callout kind="tip">
+  Enable two-factor authentication during setup for added security.
+</Callout>
+
+## Complete Initial Setup
+
+After account creation, configure your profile and workspace.
+
+<Steps>
+  <Step title="Set Workspace Name" icon="settings">
+    Enter a name like `MyProjectDocs` in the setup wizard.
+  </Step>
+  <Step title="Choose Brand Color" icon="palette">
+    Select `#3B82F6` or customize your theme.
+  </Step>
+  <Step title="Invite Team Members" icon="users">
+    Add collaborators by email if working in a team.
+  </Step>
+</Steps>
+
+## Create Your First Project
+
+Build a documentation space for your project.
+
+<Steps>
+  <Step title="New Project" icon="plus">
+    Click **New Space** from the dashboard.
+  </Step>
+  <Step title="Configure Project" icon="file-text">
+    Name it `API Reference` and select MDX as the format.
+  </Step>
+  <Step title="Add First Page" icon="edit-3">
+    Create `quickstart.mdx` with frontmatter.
+  </Step>
+</Steps>
+
+<CodeGroup tabs="MDX,YAML">
+  ```mdx
+  ---
+  title: Quickstart
+  description: Your first page.
+  ---
+  ## Hello World
+  Welcome to Kibabii!
+  ```
+  ```yaml
+  title: Quickstart
+  description: Your first page.
+  ```
+</CodeGroup>
+
+## Basic Navigation
+
+Explore key areas with these cards.
+
+<Columns cols={3}>
+  <Card title="Dashboard" icon="layout" href="/dashboard">
+    View all spaces and recent activity.
+  </Card>
+  <Card title="Spaces" icon="folders" href="/spaces">
+    Manage documentation projects.
+  </Card>
+  <Card title="Editor" icon="edit" href="/editor">
+    Write and preview MDX pages.
+  </Card>
+</Columns>
+
+<Expandable title="Troubleshooting Common Issues" default-open="false">
+  - **Login fails?** Clear browser cache or try incognito mode.
+  - **Pages not saving?** Check internet connection and API limits.
+  - **Custom domains?** Upgrade to Pro plan.
+</Expandable>
+
+<Callout kind="success">
+  Congratulations! You now have a fully functional documentation space. Next, explore advanced features like custom themes and integrations.
+</Callout>
